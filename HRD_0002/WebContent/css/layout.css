@@ -1,0 +1,62 @@
+@charset "UTF-8";
+body,html{
+	margin: 0;
+	height: 100vh;
+}
+
+
+header{
+	padding: 30px 20px;
+	background-color:  #0066CC;
+	color: white;
+	box-sizing: border-box;
+	height: 15%;
+	/* flextbox 레이아웃으로 자식 요소를 정렬하기 */
+	display: flex;
+	/* 수직 정렬 */
+	align-items: center;
+	/* 수평 정렬 */
+	justify-content: center;
+}
+
+ul{
+	list-style: none;			/* 기본적으로 들어가는 ● 없애기  */
+	background-color: #9999FF;
+	margin: 0px;
+	/* 자식인 li 에 float 속성을 지정했을 때 필요합니다. */
+	overflow: hidden;
+}
+/* ul 태그의 자손 */
+ul a{
+	text-decoration: none;		/* a태그에 기본적으로 들어가는 밑줄 없애기 */
+	padding: 20px;
+	display: inline-block;
+	color: white;
+
+}
+
+
+ul li{
+	float: left;		
+		
+}
+section{
+	box-sizing: border-box;
+	min-height: 70%;
+	padding: 20px;
+	/* 컨텐츠 내용만큼 높이만 지정되는 것을 최소 높이 지정하여 바꾸기 */
+	/* min-height: 600px; */
+	background-color: #E0E0E0;
+}
+h2{
+	text-align: center;	
+}
+footer{
+	box-sizing: border-box;
+	min-height: 7%;
+	padding: 10px;
+	background-color: #0066CC;
+	color: white;
+	font-size: 80%;
+	text-align: center;
+}

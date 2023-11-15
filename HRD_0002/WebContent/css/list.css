@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+div#list
+{
+	width: 70%;
+	margin: auto;
+}
+
+table{
+    width: 100%;
+    border: 1px solid #444444;
+    text-align: center;
+}
+th, td {
+    border: 1px solid #444444;
+  }
+
+
+div#sale
+{
+	width: 700px;
+	margin: auto;
+}
