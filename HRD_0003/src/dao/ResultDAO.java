@@ -25,9 +25,9 @@ public class ResultDAO {
 		PreparedStatement ps = conn.prepareStatement(sql);
 		ps.setString(1, dto.getP_no());
 		ps.setString(2, dto.getT_code());
-		ps.setDate(3, dto.getT_sdate());
+		ps.setString(3, dto.getT_sdate());
 		ps.setString(4, dto.getT_status());
-		ps.setDate(5, dto.getT_ldate());
+		ps.setString(5, dto.getT_ldate());
 		ps.setString(6, dto.getT_result());
 		
 		int result = ps.executeUpdate();
@@ -49,7 +49,7 @@ public class ResultDAO {
 		List<ResultDTO> list = new ArrayList<ResultDTO>();
 		
 		while(rs.next()) {
-			ResultDTO dto = new ResultDTO(rs.getString(1), rs.getString(2),rs.getString(3) ,rs.getDate(4), rs.getString(5), rs.getDate(6), rs.getString(7));
+			ResultDTO dto = new ResultDTO(rs.getString(1), rs.getString(2),rs.getString(3) ,rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7));
 			list.add(dto);
 		}
 		

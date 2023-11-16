@@ -46,9 +46,9 @@
 		<td><%= list.get(i).getP_no() %></td>
 		<td><%= list.get(i).getP_name() %></td>
 		<td><%= list.get(i).getT_name() %></td>			
-		<td><%= list.get(i).getT_sdate() %></td>
+		<td><%= list.get(i).getT_sdate().substring(0,10)%></td>
 		<td><%= t_status %></td>
-		<td><%= list.get(i).getT_ldate() %></td>
+		<td><%= list.get(i).getT_ldate().substring(0,10)%></td>
 		<td><%= t_result %></td>
 		</tr>
 		<% 
