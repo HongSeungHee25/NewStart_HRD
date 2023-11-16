@@ -15,7 +15,7 @@
 <jsp:include page="../header.jsp"></jsp:include>
 <section>
 	<h1>투표하기</h1>
-	<form action="" method="post">
+	<form action="voteAction.jsp" method="post">
 		<table>
 			<tr>
 				<th>주민번호</th>
