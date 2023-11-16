@@ -1,0 +1,35 @@
+-- sno, 학년, 반, 번호, 이름 ▶ student
+select sno,
+	substr(sno,1,1) as grade,
+	substr(sno,2,2) as class,
+	substr(sno,4,2) as num,
+	sname
+from STUDENT_TBL_03
+order by sno;
+
+-- sno, 국어, 수학, 영어, 역사, 합계, 평균, 순위 ▶ exam
+-- dense_rank() over (order by ~~) ▶ 등수 매기기 (같은 점수일 경우 동일한 등수)
+select sno, ekor, emath, eeng, ehist,
+		ekor + emath + eeng + ehist as total,
+		(ekor + emath + eeng + ehist)/4 as average,
+		dense_rank() over(order by (ekor + emath + eeng + ehist)/4 desc) as rank
+from exam_tbl_03;
+
+-- 합치기 ▶ 왼쪽 (외부) 조인 (성적이 없는 학생도 목록에 나오게 함)
+select a.grade, a.class, a.num, a.sname,
+		b.ekor, b.emath, b.eeng, b.ehist, b.total, b.average, b.rank
+from
+	(select sno,
+			substr(sno,1,1) as grade,
+			substr(sno,2,2) as class,
+			substr(sno,4,2) as num,
+			sname
+		from STUDENT_TBL_03
+		order by sno) a
+left join
+	(select sno, ekor, emath, eeng, ehist,
+			ekor + emath + eeng + ehist as total,
+			(ekor + emath + eeng + ehist)/4 as average,
+			dense_rank() over(order by (ekor + emath + eeng + ehist)/4 desc) as rank
+		from exam_tbl_03) b
+on a.sno = b.sno;

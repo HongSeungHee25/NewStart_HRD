@@ -1,20 +1,25 @@
 @charset "UTF-8";
-section table{
-	width: 700px;
-	margin: auto;
+
+table {
+	border-collapse: collapse;
+	margin: 0px auto;
+	width: 400px;
 }
-td, th{
-	/* 테두리 */
-	border: 1px solid gray;
-	padding: 5px;
+
+th, td {
+	border: 1px solid black;
+	width: 200px;
+	padding: 4px 10px;
 }
-td:first-child {
-	/* 첫번째 열 너비 */
-	width : 35%;
+
+#button {
 	text-align: center;
 }
 
-td:last-child > input[type=text],input[type=date],button{
-	/* 두번째 열 너비 */
-	padding: 5px;
+#sno {
+	width : 100px;
+}
+
+.score {
+	width: 50px;
 }

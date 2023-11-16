@@ -17,7 +17,7 @@
 %>
 <jsp:include page="../header.jsp"></jsp:include>
 <section>
-<h2>학생목록</h2>
+<h1>학생목록</h1>
 <div id="list">
 <table>
 <thead>
