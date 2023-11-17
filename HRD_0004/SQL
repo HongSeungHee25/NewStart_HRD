@@ -1,0 +1,79 @@
+create table tbl_jumin_202108(
+	jumin varchar2(20) not null primary key,
+	name varchar2(15),
+	phone varchar2(15),
+	address varchar2(50)
+);
+
+select * from TBL_JUMIN_202108;
+
+INSERT INTO TBL_JUMIN_202108 VALUES ('710101-1000001','김주민','010-1111-1111','경기도 성남시 수정구 태평1동');
+INSERT INTO TBL_JUMIN_202108 VALUES ('720101-2000001','이주민','010-1111-2222','경기도 성남시 수정구 태평2동');
+INSERT INTO TBL_JUMIN_202108 VALUES ('730101-1000001','박주민','010-1111-3333','경기도 성남시 수정구 복정동');
+INSERT INTO TBL_JUMIN_202108 VALUES ('740101-2000001','홍주민','010-1111-4444','경기도 성남시 수정구 산성동');
+INSERT INTO TBL_JUMIN_202108 VALUES ('750101-1000001','조주민','010-1111-5555','경기도 성남시 중원구 성남동');
+INSERT INTO TBL_JUMIN_202108 VALUES ('760101-2000001','최주민','010-1111-6666','경기도 성남시 중원구 하대원동');
+INSERT INTO TBL_JUMIN_202108 VALUES ('770101-1000001','장주민','010-1111-7777','경기도 성남시 중원구 상대원동');
+INSERT INTO TBL_JUMIN_202108 VALUES ('780101-2000001','정주민','010-1111-8888','경기도 성남시 중원구 하대원동');
+INSERT INTO TBL_JUMIN_202108 VALUES ('790101-1000001','강주민','010-1111-9999','경기도 성남시 분당구 야탑1동');
+INSERT INTO TBL_JUMIN_202108 VALUES ('800101-2000001','신주민','010-2222-1111','경기도 성남시 분당구 야탑2동');
+
+create table tbl_hosp_202108(
+	hospcode char(4) not null primary key,
+	hospname varchar2(40),
+	hosptel varchar2(15),
+	hospaddr varchar2(50)
+);
+
+select * from TBL_HOSP_202108;
+
+INSERT INTO TBL_HOSP_202108 VALUES ('H001','가_병원','031-1111-2222','10');
+INSERT INTO TBL_HOSP_202108 VALUES ('H002','나_병원','031-1111-3333','20');
+INSERT INTO TBL_HOSP_202108 VALUES ('H003','다_병원','031-1111-4444','30');
+INSERT INTO TBL_HOSP_202108 VALUES ('H004','라_병원','031-1111-5555','40');
+
+create table tbl_vaccresv_202108(
+	resvno number(8) not null primary key,
+	jumin varchar2(20),
+	hospcode char(4),
+	resvdate date,
+	resvtime number(4),
+	vcode char(4)
+);
+
+select * from TBL_VACCRESV_202108;
+
+INSERT INTO TBL_VACCRESV_202108 VALUES ('2021001','710101-1000001','H001','20210801','0930','V001');
+INSERT INTO TBL_VACCRESV_202108 VALUES ('2021002','720101-2000001','H002','20210801','1030','V002');
+INSERT INTO TBL_VACCRESV_202108 VALUES ('2021003','730101-1000001','H003','20210801','1130','V003');
+INSERT INTO TBL_VACCRESV_202108 VALUES ('2021004','740101-2000001','H001','20210801','1230','V001');
+INSERT INTO TBL_VACCRESV_202108 VALUES ('2021005','750101-1000001','H001','20210801','1330','V002');
+INSERT INTO TBL_VACCRESV_202108 VALUES ('2021006','760101-2000001','H002','20210801','1430','V003');
+INSERT INTO TBL_VACCRESV_202108 VALUES ('2021007','770101-1000001','H003','20210801','1530','V001');
+INSERT INTO TBL_VACCRESV_202108 VALUES ('2021008','780101-2000001','H001','20210801','1630','V002');
+INSERT INTO TBL_VACCRESV_202108 VALUES ('2021009','790101-1000001','H001','20210801','1730','V003');
+INSERT INTO TBL_VACCRESV_202108 VALUES ('2021010','800101-2000001','H002','20210801','1830','V001');
+
+-- 예약 번호 
+SELECT MAX(RESVNO)+1
+FROM TBL_VACCRESV_202108;
+
+-- 예약 조회
+select a.resvno, b.name, b.jumin, c.hospname, a.resvdate, a.resvtime, a.vcode, c.hospaddr
+from TBL_VACCRESV_202108 a join TBL_JUMIN_202108 b
+on a.jumin = b.jumin join TBL_HOSP_202108 c on a.hospcode = c.hospcode
+where a.resvno = '2021001';
+
+-- 예약 현황
+select a.hospaddr, count(*) as count
+from TBL_HOSP_202108 a, TBL_VACCRESV_202108 b
+where a.hospcode = b.hospcode
+group by a.hospaddr
+order by a.hospaddr;
+
+
+
+
+
+
+
