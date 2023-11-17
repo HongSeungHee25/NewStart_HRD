@@ -1,8 +1,8 @@
+<%@page import="dao.MemberDAO"%>
 <%@page import="dto.PartyDTO"%>
 <%@page import="dto.MemberDTO"%>
 <%@page import="java.util.List"%>
 <%@page import="dao.PartyDAO"%>
-<%@page import="dao.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -28,7 +28,7 @@
 		<th>지역구</th>
 		<th>대표전화</th>
 		</tr>
-		<% 
+		<%
 			MemberDAO dao = MemberDAO.getMemberDAO();
 			PartyDAO pdao = PartyDAO.getPartyDAO();
 			List<MemberDTO> list = dao.getList();
@@ -40,7 +40,6 @@
 				else if(school.equals("2")) list.get(i).setP_school("학사");
 				else if(school.equals("3")) list.get(i).setP_school("석사");
 				else if(school.equals("4")) list.get(i).setP_school("박사");
-			
 		%>
 		<tr>
 		<td><%= list.get(i).getM_no() %></td>

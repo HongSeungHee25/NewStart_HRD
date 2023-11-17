@@ -1,6 +1,6 @@
+<%@page import="dao.MemberDAO"%>
 <%@page import="dto.MemberDTO"%>
 <%@page import="java.util.List"%>
-<%@page import="dao.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -30,11 +30,11 @@
 				<td>
 					<select id="num" name="num">
 						<option value="0"></option>
-						<% 
+						<%
 							MemberDAO dao = MemberDAO.getMemberDAO();
-							List<MemberDTO> list = dao.getList();
-							
-							for(MemberDTO dto : list){
+											List<MemberDTO> list = dao.getList();
+											
+											for(MemberDTO dto : list){
 						%>
 						<option value="<%= dto.getM_no() %>">[<%= dto.getM_no() %>] <%= dto.getM_name() %></option>
 						<% 
