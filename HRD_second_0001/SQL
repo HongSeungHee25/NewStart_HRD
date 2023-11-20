@@ -1,0 +1,25 @@
+-- 후보조회
+select a.m_no, a.m_name, b.p_name, a.p_school, a.m_jumin, a.m_city, b.p_tel1, b.p_tel2, b.p_tel3
+from TBL_MEMBER_202005 a join TBL_PARTY_202005 b
+on a.p_code = b.p_code;
+
+-- 투표하기
+insert into tbl_vote_202005 values(?,?,?,?,?,?);
+
+-- 투표검수조회
+select * from TBL_VOTE_202005;
+select to_number(to_char(sysdate,'yyyy'))-to_number('19'||substr(v_jumin,1,2)) v_age
+from TBL_VOTE_202005;
+
+select v_name,v_jumin,to_number(to_char(sysdate,'yyyy'))-to_number('19'||substr(v_jumin,1,2)) v_age, m_no,v_time,v_area,v_confirm
+from TBL_VOTE_202005;
+
+-- 후보자등수
+SELECT a.m_no,a.M_NAME,b.count
+	FROM TBL_MEMBER_202005 a
+	JOIN (SELECT m_no, count(*) AS count
+			FROM TBL_VOTE_202005
+			WHERE V_CONFIRM = 'Y'
+			GROUP BY m_no
+			ORDER BY count desc) b
+	ON a.m_no = b.m_no;
