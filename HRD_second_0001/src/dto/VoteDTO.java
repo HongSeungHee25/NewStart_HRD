@@ -29,7 +29,15 @@ public class VoteDTO {
 		this.v_area = v_area;
 		this.v_confirm = v_confirm;
 	}
-
+	public VoteDTO(String v_jumin,String v_name, String m_no, String v_time, String v_area, String v_confirm) {
+		super();
+		this.v_jumin = v_jumin;
+		this.v_name = v_name;
+		this.m_no = m_no;
+		this.v_time = v_time;
+		this.v_area = v_area;
+		this.v_confirm = v_confirm;
+	}
 	public VoteDTO(String m_no, String v_name, int count) {
 		this.m_no = m_no;
 		this.v_name = v_name;
