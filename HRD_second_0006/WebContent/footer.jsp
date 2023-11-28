@@ -4,9 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>footer</title>
 </head>
 <body>
-
+<footer>
+	<h4>HRDKOREA Copyright&copy;2016 All rights reserved. Human Resources Development Service of Korea.</h4>
+</footer>
 </body>
 </html>
