@@ -2,14 +2,28 @@ package dto;
 
 public class VaccresvDTO {
 	private int resvno;
+	private String name;
 	private String jumin;
 	private String hospcode;
 	private String resvdate;
-	private String resvtime;
+	private int resvtime;
 	private String vcode;
+	private String hospaddr;
+	private int count;
 	
 	
-	public VaccresvDTO(int resvno, String jumin, String hospcode, String resvdate, String resvtime, String vcode) {
+	public VaccresvDTO(String hospaddr, int count) {
+		super();
+		this.hospaddr = hospaddr;
+		this.count = count;
+	}
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
+	}
+	public VaccresvDTO(int resvno, String jumin, String hospcode, String resvdate, int resvtime, String vcode) {
 		super();
 		this.resvno = resvno;
 		this.jumin = jumin;
@@ -20,6 +34,30 @@ public class VaccresvDTO {
 	}
 	public int getResvno() {
 		return resvno;
+	}
+	public VaccresvDTO(int resvno, String name, String jumin, String hospcode, String resvdate, int resvtime,
+			String vcode, String hospaddr) {
+		super();
+		this.resvno = resvno;
+		this.name = name;
+		this.jumin = jumin;
+		this.hospcode = hospcode;
+		this.resvdate = resvdate;
+		this.resvtime = resvtime;
+		this.vcode = vcode;
+		this.hospaddr = hospaddr;
+	}
+	public String getHospaddr() {
+		return hospaddr;
+	}
+	public void setHospaddr(String hospaddr) {
+		this.hospaddr = hospaddr;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	public void setResvno(int resvno) {
 		this.resvno = resvno;
@@ -42,10 +80,10 @@ public class VaccresvDTO {
 	public void setResvdate(String resvdate) {
 		this.resvdate = resvdate;
 	}
-	public String getResvtime() {
+	public int getResvtime() {
 		return resvtime;
 	}
-	public void setResvtime(String resvtime) {
+	public void setResvtime(int resvtime) {
 		this.resvtime = resvtime;
 	}
 	public String getVcode() {

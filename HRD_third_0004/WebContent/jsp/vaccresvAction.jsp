@@ -10,7 +10,7 @@
 			request.getParameter("jumin"),
 			request.getParameter("hospcode"),
 			request.getParameter("resvdate"),
-			request.getParameter("resvtime"),
+			Integer.parseInt(request.getParameter("resvtime")),
 			request.getParameter("vcode")
 			);
 	int result = dao.insert(dto);
